@@ -39,6 +39,10 @@
 
         <property name="format_sql">true</property>
 
+        <!-- This will map entity classes withoud addAnnotatedClass() class -->
+        <mapping class="com.hb05.manytoone.University"/>
+        <mapping class="com.hb05.manytoone.Student05" />
+
 
 
     </session-factory>
