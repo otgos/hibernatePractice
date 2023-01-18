@@ -39,9 +39,17 @@
 
         <property name="format_sql">true</property>
 
-        <!-- This will map entity classes withoud addAnnotatedClass() class -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
+
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.jcache.internal.JCacheRegionFactory</property>
+        <property name="hibernate.javax.cache.provider">org.ehcache.jsr107.EhcacheCachingProvider</property>
+
+        <!-- This will map entity classes withoud addAnnotatedClass() class
         <mapping class="com.hb05.manytoone.University"/>
-        <mapping class="com.hb05.manytoone.Student05" />
+        <mapping class="com.hb05.manytoone.Student05" />-->
+
+
 
 
 
