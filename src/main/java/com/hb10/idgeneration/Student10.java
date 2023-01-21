@@ -20,6 +20,7 @@ public class Student10 {
                         initialValue = 1000, //starting number of id
                         allocationSize = 10 //increments 10 by 10
 
+
     )
     @Id
     private int id;

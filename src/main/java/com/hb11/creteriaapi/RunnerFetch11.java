@@ -69,7 +69,7 @@ public class RunnerFetch11 {
 
         //until now we wrote boiler plate codes.. this is how they can set up the criteria
 
-        //example 1
+        //example 1 select all students
 //        criteriaQuery.select(root);
 //        Query<Student11> query1 = session.createQuery(criteriaQuery);
 //        List<Student11> resultList =  query1.getResultList();
