@@ -17,25 +17,26 @@ public class RunnerFetch13 {
         System.out.println("•••••••••• get method starts •••••••••");
         Student13 student1 =  session.get(Student13.class, 1L);
         //explain: this will give us student object with all its fields
-
+        System.out.println("•••••••••• get method ends •••••••••");
 
         System.out.println("Student name: "+student1.getName());
         System.out.println("Student grade: "+student1.getGrade());
 
         //explain that there is no other select query for getting name and grade, because we have ready data
 
-        System.out.println("•••••••••• get method ends •••••••••");
+
         System.out.println("•••••••••• load method starts •••••••••");
 
         Student13 student2 = session.load(Student13.class, 1L); //ask? will i see select query??
 
         //answer: reasons-- 1 maybe because of cache or load?
-
+        System.out.println("load mthd starts");
         Student13 student3 = session.load(Student13.class, 2L); //ask? will i see select query??
-        System.out.println("getName starts");
-        System.out.println("Student get name: "+student3.getName());
-        System.out.println("getName ends");
 
+
+        System.out.println("load mthd ends");
+        System.out.println("Student get ID: "+student3.getId()); //**check console
+        System.out.println("Student get name: "+student3.getName());
         //explain : we requested name but it brought all object
 
 

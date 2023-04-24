@@ -12,7 +12,7 @@ package com.hb12.caching;
      3) Query Cache
             * Used for queries
             *needs to be enabled manually
-            chec
+
 
  */
 
