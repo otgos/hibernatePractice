@@ -1,5 +1,24 @@
 package com.hb13.get_load;
 
+/*
+     1)   Performance: load() method returns a proxy object without hitting the database,
+         which can be more efficient than get() method. This is because the proxy object is created
+         using the object's identifier and doesn't contain any data until it's actually accessed.
+
+      2)  Lazy loading: If you use load() method, you can take advantage of
+        Hibernate's lazy loading feature, which means that related objects are
+        not retrieved from the database until they are accessed. This can help improve
+        performance and reduce memory usage.
+
+       3) Consistency: If the object doesn't exist in the database, load() method
+        throws an ObjectNotFoundException, whereas get() method returns null. This can help
+        ensure consistency in your application by signaling an error if the requested object doesn't exist.
+
+       4) Object state: When you use load() method, you can be sure that the object is in
+        a persistent state, which means that it's associated with a Hibernate session.
+         This can be useful if you need to modify the object later and save the changes to the database.
+ */
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -44,14 +63,19 @@ public class RunnerFetch13 {
         //get()
         System.out.println("get() starts here..... for null value.....");
         Student13 student4 = session.get(Student13.class, 5L);
-        System.out.println("Student whose id is 5: "+student4);
+        if(student4!=null){
+            System.out.println("Student whose id is 5: "+student4); //
+        }
         System.out.println("get() ends here..... for null value.....");
 
 
         //load()
         System.out.println("load() starts here..... for null value.....");
         Student13 student5 = session.load(Student13.class, 5L);
-        System.out.println("Student whose id is 5: "+student5);
+        if(student5!=null){ //actually it is not null, it is fake
+            System.out.println("Student whose id is 5: "+student5); //
+        }
+        //**because obj is dummy or fake obj (it is like empty box)
         System.out.println("load() ends here..... for null value.....");
 
         /*

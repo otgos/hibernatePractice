@@ -35,9 +35,13 @@ public class RunnerSave14 {
         session.save(student1); //persistent state
 
         student1.setName("Updated AAA"); // do i need to save again?
+        //** no need to save.. when committed it will be saved
 
         session.evict(student1); //Detached State. Remove this instance from the session cache.
         // Changes to the instance will not be synchronized with the database.
+        // it is like roll back
+
+        student1.setName("BBB"); //obj is still in detach mode... no change will be stored
 
         session.update(student1); //detached obj will be taken to persistent state
         session.merge(student1);  //detached obj will be taken to persistent state
