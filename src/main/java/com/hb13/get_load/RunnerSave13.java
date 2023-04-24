@@ -1,6 +1,5 @@
 package com.hb13.get_load;
 
-import com.hb12.hibernatecaching.Student12;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

@@ -72,7 +72,7 @@ public class RunnerFetch01 {
         System.out.println(student03);
 
         //******************************Get obj s grade is 90 *****************
-        String hqlQuery4 = "FROM s.id, s.name FROM Student01 s WHERE s.grade = 90"; //Student01 = s
+        String hqlQuery4 = "SELECT s.id, s.name FROM Student01 s WHERE s.grade = 90"; //Student01 = s
         //we did not mapp our object to Student01 in createQuery(). So we assigned into Object[] container
         List<Object[]> resultList3 = session.createQuery(hqlQuery4).getResultList();
         for(Object[] o: resultList3){

@@ -1,5 +1,21 @@
 package com.hb12.caching;
 
+/*
+    1) First level Cache --->
+            * default caching, can not be closed
+            * caches in the same session
+            * memory is cleared when session is closed
+
+     2) Second level Cache --->
+            * closed by default (needs to be enabled manually)
+            * caches in Session Factory level (can cache in different sessions)
+     3) Query Cache
+            * Used for queries
+            *needs to be enabled manually
+            chec
+
+ */
+
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;

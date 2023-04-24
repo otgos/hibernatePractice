@@ -9,6 +9,7 @@ import org.hibernate.query.Query;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.List;
 import java.util.Random;
@@ -97,12 +98,26 @@ public class RunnerFetch11 {
         //example 4
 
         //task: fetch students whose grade is less than 95
-        criteriaQuery.select(root). // all queries are created based on root
-                where(cb.lessThan(root.get("grade"), 95));
+//        criteriaQuery.select(root). // all queries are created based on root
+//                where(cb.lessThan(root.get("grade"), 95));
+//
+//        Query<Student11> query4 = session.createQuery(criteriaQuery);
+//        List<Student11> resultList4 = query4.getResultList();
+//        resultList4.forEach(System.out::println);
 
-        Query<Student11> query4 = session.createQuery(criteriaQuery);
-        List<Student11> resultList4 = query4.getResultList();
-        resultList4.forEach(System.out::println);
+
+        //Example 5--> find records whose id =1, or grade is greater than 75
+
+        Long id= 1L;
+        Predicate predicateForId = cb.equal(root.get("id"), id);
+        Predicate predicateGrade = cb.greaterThan(root.get("grade"), 75);
+
+        Predicate predicateQuery = cb.or(predicateForId, predicateGrade);
+        criteriaQuery.where(predicateQuery);
+        Query<Student11> query5 = session.createQuery(criteriaQuery);
+
+        List<Student11> resultList5 = query5.getResultList();
+        resultList5.forEach(std-> System.out.println(std));
 
 
         tx.commit();

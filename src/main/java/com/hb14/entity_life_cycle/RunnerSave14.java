@@ -1,6 +1,5 @@
 package com.hb14.entity_life_cycle;
 
-import com.hb12.hibernatecaching.Student12;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
